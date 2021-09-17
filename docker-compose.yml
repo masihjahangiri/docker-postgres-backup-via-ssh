@@ -1,0 +1,37 @@
+
+version: '3.3'
+
+services:
+  cronjob:
+    container_name: cronjob-alpine
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - backups:${BACKUP_DIR_CONTAINER}
+    environment:
+      BACKUP_DIR: ${BACKUP_DIR_CONTAINER}
+      DAYS_TO_KEEP: ${DAYS_TO_KEEP}
+      FILE_SUFFIX: ${FILE_SUFFIX}
+      DB_USER: ${DB_USER}
+      DB_NAME: ${DB_NAME}
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_PORT: ${DB_POR}
+      SSH_USERNAME: ${SSH_USERNAME}
+      SSH_HOST: ${SSH_HOST}
+      SSH_PORT: ${SSH_PORT}
+  fileBrowser:
+    image: filebrowser/filebrowser
+    ports:
+      - 80:80
+    volumes:
+        - backups:/srv
+
+volumes:
+  backups:
+    driver: local
+    driver_opts:
+      type: none
+      device: ${BACKUP_DIR}
+      o: bind
+
