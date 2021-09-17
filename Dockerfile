@@ -11,6 +11,7 @@ COPY config/id_rsa /root/.ssh/
 RUN chmod 600 ~/.ssh/id_rsa
 
 COPY config/pgsql_backup.sh /root/
+RUN chmod 600 /root/pgsql_backup.sh
 
 
 
