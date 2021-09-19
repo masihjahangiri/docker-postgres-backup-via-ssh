@@ -1,5 +1,5 @@
 # A docker image to automate Postgres backup from a remote server via SSH tunnel
-You can easily setup a daily backup system for your postgres database with a docker image.\
+You can easily setup a daily backup system to your postgres database with a docker image.\
 This boilerplate help you connect to destination database server via SSH tunnel (by id_rsa) and make a backup every day at 00:00 (the period is customizable by modifying the `config/cronjobs` file).\
 By default it keeps backup file till 14 days and you can change it with evn variables in `.env` file.
 ## how to deploy
