@@ -5,8 +5,9 @@ By default it keeps backup file till 14 days and you can change it with evn vari
 ## how to deploy
 1. Copy the SSH private key in id_rsa file (`config/id_rsa`)
 2. Clone .env from example.env and set your environment variables
-3. docker compose build ; docker compose up -d
-4. You can explore backup files in browser (`localhost:80`).
+3. sudo mkdir /backups (`BACKUP_DIR` in .env is /backups)
+4. docker compose build ; docker compose up -d
+5. You can explore backup files in browser (`localhost:80`).
 
 ## Options in `.env`
 `BACKUP_DIR` the backup files will save there.
