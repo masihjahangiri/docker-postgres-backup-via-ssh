@@ -5,7 +5,7 @@ OUTPUT_FILE=${BACKUP_DIR}/${FILE}
 
 mkdir -p ${BACKUP_DIR}
 ssh -oStrictHostKeyChecking=no -o ExitOnForwardFailure=yes -f -L 1111:localhost:${DB_PORT} ${SSH_USERNAME}@${SSH_HOST} -p ${SSH_PORT} sleep 10
-PGPASSWORD=${DB_PASSWORD} pg_dump -C -h localhost --port 1111 -U ${DB_USER} ${DB_NAME} -F p -f ${OUTPUT_FILE}
+PGPASSWORD=${DB_PASSWORD} pg_dump -c -h localhost --port 1111 -U ${DB_USER} ${DB_NAME} -F p -f ${OUTPUT_FILE}
 
 gzip $OUTPUT_FILE
 
