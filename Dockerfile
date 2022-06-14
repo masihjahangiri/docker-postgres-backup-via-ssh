@@ -1,4 +1,4 @@
-FROM alpine:3.14
+FROM postgres:14.3-alpine
 RUN apk update && apk upgrade
 RUN apk add --no-cache \
   openssh \
