@@ -2,7 +2,7 @@ FROM postgres:14.3-alpine
 RUN apk update && apk upgrade
 RUN apk add --no-cache \
   openssh \
-  postgresql-client
+  # postgresql-client
 
 # copy crontabs for root user
 COPY config/cronjobs /etc/crontabs/root
