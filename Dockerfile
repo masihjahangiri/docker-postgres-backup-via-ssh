@@ -1,4 +1,12 @@
 FROM postgres:14.3-alpine
+
+ARG PROXY_URL
+
+ENV HTTP_PROXY=$PROXY_URL
+ENV HTTPS_PROXY=$PROXY_URL
+ENV FTP_PROXY=$PROXY_URL
+ENV NO_PROXY=$PROXY_URL
+
 RUN apk update && apk upgrade
 RUN apk add --no-cache \
   openssh

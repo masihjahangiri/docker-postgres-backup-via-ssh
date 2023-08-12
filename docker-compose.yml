@@ -6,7 +6,10 @@ services:
     container_name: cronjob-alpine
     build:
       context: .
-      dockerfile: Dockerfile
+      extra_hosts:
+        - "host.docker.internal:host-gateway"
+      args:
+        PROXY_URL: socks5h://host.docker.internal:1080/
     restart: always
     volumes:
       - backups:/backups
