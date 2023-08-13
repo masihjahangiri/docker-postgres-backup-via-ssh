@@ -8,7 +8,7 @@ services:
       context: .
     restart: always
     volumes:
-      - backups:/backups
+      - backups:${BACKUP_DIR}
     env_file:
       - .env
   fileBrowser:
